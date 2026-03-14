@@ -1,0 +1,50 @@
+{% extends "zgloszenia/base.html" %} 
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2 class="h5 mb-3">Lista zgłoszeń</h2>
+
+    {% if zgloszenia %}
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th>Imię i nazwisko</th>
+            <th>Adres e-mail</th>
+            <th>Temat</th>
+            <th>Data utworzenia</th>
+            <th>Akcje</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for zgloszenie in zgloszenia %}
+          <tr>
+            <td>{{ zgloszenie.imie_nazwisko }}</td>
+            <td>{{ zgloszenie.email }}</td>
+            <td>{{ zgloszenie.temat }}</td>
+            <td>{{ zgloszenie.data_utworzenia|date:"d.m.Y H:i" }}</td>
+            <td>
+              <a
+                href="{% url 'zgloszenia:edytuj_zgloszenie' zgloszenie.pk %}"
+                class="btn btn-sm btn-warning"
+                >Edytuj</a
+              >
+              <a
+                href="{% url 'zgloszenia:usun_zgloszenie' zgloszenie.pk %}"
+                class="btn btn-sm btn-danger"
+                >Usuń</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="alert alert-info mb-0">
+      Nie ma jeszcze żadnych zgłoszeń. Należy dodać pierwszy rekord.
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

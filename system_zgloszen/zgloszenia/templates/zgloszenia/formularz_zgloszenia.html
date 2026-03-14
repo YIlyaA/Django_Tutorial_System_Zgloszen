@@ -1,0 +1,30 @@
+{% extends "zgloszenia/base.html" %} 
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2 class="h5 mb-3">{{ tytul }}</h2>
+
+    <form method="post">
+      {% csrf_token %} 
+      {% for field in form %}
+      <div class="mb-3">
+        <label for="{{ field.id_for_label }}" class="form-label"
+          >{{ field.label }}</label
+        >
+        {{ field }} 
+        {% if field.errors %}
+        <div class="text-danger small mt-1">{{ field.errors }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-primary">
+        {{ tekst_przycisku }}
+      </button>
+      <a href="{% url 'zgloszenia:lista_zgloszen' %}" class="btn btn-secondary"
+        >Anuluj</a
+      >
+    </form>
+  </div>
+</div>
+{% endblock %}

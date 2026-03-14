@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>System zgłoszeń</title>
+  </head>
+  <body class="bg-light">
+  <div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h1 class="h3 mb-1">System zgłoszeń</h1>
+        <p class="text-muted mb-0">
+          Prosta aplikacja Django do ćwiczenia CRUD.
+        </p>
+      </div>
+      <a href="{% url 'zgloszenia:dodaj_zgloszenie' %}" class="btn btn-primary"
+        >Dodaj zgłoszenie</a
+      >
+    </div>
+
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
