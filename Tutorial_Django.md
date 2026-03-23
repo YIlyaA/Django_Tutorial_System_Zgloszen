@@ -1,5 +1,8 @@
 # Tutorial Django krok po kroku: prosty System zgłoszeń
 
+**Autor:** Illia Yanukovich   
+**Rok utworzenia:** 2026
+
 > **Uwaga:** w przykładach używana jest komenda `python`. Jeżeli w danym systemie interpreter działa jako `python3` albo `py`, należy konsekwentnie używać tej wersji w całym tutorialu.
 >
 > **Efekt końcowy:** prosta aplikacja Django typu CRUD z podstawową obsługą `Django Admin`.
